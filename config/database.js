@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
 
 mongoose.connect(
-    'mongodb://localhost/f1',
-    {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true}
-);
+    process.env.DATABASE_URL,{
+        useNewUrlParser: true, 
+        useCreateIndex: true, 
+        useUnifiedTopology: true
+    });
 
 var db = mongoose.connection;
 
