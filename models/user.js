@@ -18,8 +18,7 @@ let postSchema = new Schema ({
 })
 
 let userSchema = new Schema ({
-    firstName: String,
-    lastName: String,
+    name: String,   
     email: String,
     googleId: String,
     born: Date,
@@ -27,7 +26,6 @@ let userSchema = new Schema ({
     favDriver: String,
     favTeam: String,
     posts: [postSchema],
-    comments: [commentSchema]
 }, {
     timestamps: true
 })
