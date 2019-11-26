@@ -6,5 +6,5 @@ homePage
 }
 
 function homePage(req, res){
-    res.render('logged-in/home')
+    res.render('logged-in/home',{user: req.user})
 }

@@ -11,11 +11,15 @@
     <title>F1 Forum</title>
 </head>
 <body>
-    <!-- <header>
-        <ul class="nav">
-            <li class="nav-item">
-                  <a class="nav-link active" href="#">Log out</a>
-            </li>
-        </ul>
-    </header>     -->
+    <header>
+            <ul class="right">
+                    <li>
+                    <% if (user) { %>
+                      <a href="/logout"></i>Log Out</a>
+                    <% } else { %>
+                      <a href="/auth/google"></i>Login with Google</a>
+                    <% } %>
+                    </li>
+             </ul>
+    </header>    
 <main>
