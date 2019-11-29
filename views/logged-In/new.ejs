@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<h2>Start a discussion</h2>
+<form action="/home" method="POST">
+<label>Title:
+    <input type="text" name="title">
+</label>
+<br>
+<label>Post:
+    <textarea rows="15" cols="50" name="body"></textarea>
+</label>
+<br>
+<button type="submit" class="btn btn-outline-primary">Submit Post</button>
+</form>
+<%- include('../partials/footer') %>
