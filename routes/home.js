@@ -3,9 +3,11 @@ let router = express.Router();
 let homeCtrl = require('../controllers/home');
 
 
-router.get('/', homeCtrl.homePage);
-router.get('/new', homeCtrl.newPost);
-router.post('/', homeCtrl.addPost);
+router.get('/', isLoggedIn, homeCtrl.homePage);
+router.get('/new', isLoggedIn, homeCtrl.newPost);
+router.get('/:userId/:postId', isLoggedIn, homeCtrl.show);
+router.post('/:id', isLoggedIn, homeCtrl.addPost);
+
 
 
 function isLoggedIn(req, res, next){

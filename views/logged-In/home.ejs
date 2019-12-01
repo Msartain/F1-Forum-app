@@ -8,11 +8,17 @@
 </div>
 
 
-<table class="table table-striped text-center">
+<table class="table table-striped text-center"> 
         <th>Title </th>
-        <th>Date</th>
+        <th>Created</th>
         <th>Likes</th>
 </thead>
-
+<tbody>
+    <% user.posts.forEach(function(post) { %>
+        <tr>
+            <td><a href="/home/<%= user._id %>/<%= post.id %>"><%= post.title %></a></td>
+            <td><%= post.createdAt.toLocaleString() %></td>
+        </tr>
+    <% }) %>    
 
 <%- include('../partials/footer') %>

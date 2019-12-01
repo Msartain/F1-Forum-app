@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <h2>Start a discussion</h2>
-<form action="/home" method="POST">
+<form action="/home/<%=user._id %>" method="POST">
 <label>Title:
     <input type="text" name="title">
 </label>
