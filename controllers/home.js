@@ -9,19 +9,21 @@ show
 }
 
 function show(req, res){
-    User.findById(req.params.userId, function(err, user){
-        user.posts.forEach(function(post){
-            let postString = post._id.toString();
-            if(postString === req.params.postId){
-                console.log('a!A!A!A!A')
-                res.render('logged-in/show', {post: post, user: req.user})
-            }
-        })
+    User.findOne({'posts._id': req.params.postId}).then(function(user) {
+        console.log('POST:' + user.posts.id(req.params.postId))
+        var post = user.posts.id(req.params.postId);
+        res.render('logged-in/show', {post: post, user: req.user})
     })
+    // User.findById(req.params.userId, function(err, user){
+    //     user.posts.forEach(function(post){
+    //         let postString = post._id.toString();
+    //         if(postString === req.params.postId){
+    //         }
+    //     })
+    // })
 }
 
 function addPost(req, res){
-    console.log('ADDPOST FUNCTION RAN')
     req.user.posts.push(req.body);
     req.user.save(function(err){
         res.redirect('/home', );
