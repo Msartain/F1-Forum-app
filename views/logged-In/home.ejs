@@ -14,11 +14,14 @@
         <th>Likes</th>
 </thead>
 <tbody>
-    <% user.posts.forEach(function(post) { %>
+    <% users.forEach(function(post) { %>
+      <% post.posts.forEach(function(p) { %>
         <tr>
-            <td><a href="/home/<%= user._id %>/<%= post.id %>"><%= post.title %></a></td>
-            <td><%= post.createdAt.toLocaleString() %></td>
+            <td><a href="/home/<%= user._id %>/<%= post.id %>"><%= p.title %></a></td>
+            <td><%= p.createdAt.toLocaleString() %></td>
         </tr>
+      <% }) %>
     <% }) %>    
+    
 
 <%- include('../partials/footer') %>

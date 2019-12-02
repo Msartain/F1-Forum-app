@@ -1,4 +1,5 @@
 const User = require('../models/user');
+// let Post = require('../models/user')
 
 
 module.exports = {
@@ -10,8 +11,8 @@ show
 
 function show(req, res){
     User.findOne({'posts._id': req.params.postId}).then(function(user) {
-        console.log('POST:' + user.posts.id(req.params.postId))
-        var post = user.posts.id(req.params.postId);
+        // console.log('POST:' + user.posts.id(req.params.postId))
+        let post = user.posts.id(req.params.postId);
         res.render('logged-in/show', {post: post, user: req.user})
     })
     // User.findById(req.params.userId, function(err, user){
@@ -31,7 +32,15 @@ function addPost(req, res){
 }
 
 function homePage(req, res){
-    res.render('logged-in/home',{user: req.user})
+    User.find({}, function(err, users){
+        if (err) return;
+        console.log('TEST' + users)
+        res.render('logged-in/home',{
+            users,
+            user: req.user,
+        })
+    } )
+    
 }
 
 function newPost(req, res){
