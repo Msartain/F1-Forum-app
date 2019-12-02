@@ -3,11 +3,18 @@
 <h1>show page</h1>
 
 <label>Title:</label>
-<p><%= post.title %></p>
-
+    <p><%= post.title %></p>
 <label>Post:</label>
-<p><%= post.body %></p>
+    <p><%= post.body %></p>
 
+<label>Replies: </label>
+<% user.posts.forEach(function(post){ %>
+    <% post.comments.forEach(function(c){ %>
+        <ul>
+           <li><%= c.body %></li> 
+        </ul>
+    <% }) %>
+<% }) %>
 
 
 <form action="/home/<%= post._id %>/comments" method="POST">
