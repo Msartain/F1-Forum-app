@@ -17,7 +17,7 @@
     <% users.forEach(function(post) { %>
       <% post.posts.forEach(function(p) { %>
         <tr>
-            <td><a href="/home/<%= user._id %>/<%= post.id %>"><%= p.title %></a></td>
+            <td><a href="/home/<%= user._id %>/<%= p._id %>"><%= p.title %></a></td>
             <td><%= p.createdAt.toLocaleString() %></td>
         </tr>
       <% }) %>
