@@ -14,6 +14,7 @@ require('./config/passport');
 let indexRouter = require('./routes/index');
 let homeRouter = require('./routes/home');
 let apiRouter = require('./routes/api');
+let commentsRouter = require('./routes/comments');
 
 let app = express();
 
@@ -38,6 +39,8 @@ app.use(methodOverride('_method'))
 app.use('/', indexRouter);
 app.use('/home', homeRouter);
 app.use('/api', apiRouter);
+app.use('/comments', commentsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

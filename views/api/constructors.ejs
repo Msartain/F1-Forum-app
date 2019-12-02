@@ -2,5 +2,26 @@
 
 <h1>Constructor Standings</h1>
 
+<table class="table table-striped text-center"> 
+        <th>Pos </th>
+        <th>Constructor</th>
+        <th>Nationality</th>
+        <th>Points</th>
+        <th>Wins</th>
+    </thead>
+    <tbody>
+            <% teamTable.forEach(function(table){ %>
+                <% table.ConstructorStandings.forEach(function(standing){ %>
+                    <% let constructor = standing.Constructor; %>        
+                    <tr>
+                            <td> <%= standing.position %> </td>
+                            <td> <%= constructor.name %> </td>
+                            <td> <%= constructor.nationality%> </td>
+                            <td> <%= standing.points %> </td>
+                            <td> <%= standing.wins %> </td>
+                    </tr>
+                <% }); %>
+            <% }); %>
+
 
 <%- include('../partials/footer') %>

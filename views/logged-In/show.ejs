@@ -2,16 +2,15 @@
 
 <h1>show page</h1>
 
-<h4>Title:</h4>
+<label>Title:</label>
 <p><%= post.title %></p>
 
-<h4>Post:</h4>
+<label>Post:</label>
 <p><%= post.body %></p>
-<form action="#" method="POST">
-<label>Reply:
+
+<form action="/comments" method="POST">
+<label>Reply:</label>
         <textarea rows="15" cols="50" name="body"></textarea>
-    </label>
-    <br>
     <button type="submit" class="btn btn-outline-primary">Submit reply</button>
 </form>
 
