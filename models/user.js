@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 let commentSchema = new Schema ({
     body: String,
     likes: Number,
+    userId: String,
 }, {
     timestamps: true
 })

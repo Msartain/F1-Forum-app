@@ -8,12 +8,16 @@
     <p><%= post.body %></p>
 
 <label>Replies: </label>
-<% user.posts.forEach(function(post){ %>
-    <% post.comments.forEach(function(c){ %>
+     <% post.comments.forEach(function(c){ %>
         <ul>
-           <li><%= c.body %></li> 
+            <% if(user._id == c.userId){ %>
+                <form action="/post/<%= post._id %>/comments/<%= c._id %>?_method=DELETE" method="POST">
+                    <li><%= c.body %></li> <button>Delete Comment</button>
+                </form>
+            <% } else { %>
+                <li><%= c.body %></li> 
+            <% } %>
         </ul>
-    <% }) %>
 <% }) %>
 
 
