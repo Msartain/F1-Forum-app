@@ -5,9 +5,13 @@ module.exports = {
 homePage,
 newPost,
 addPost,
-show
+show,
+update
 }
 
+function update(req, res){
+    console.log('UPDATE FUNCTION RAN')
+}
 
 function show(req, res){
     User.findOne({'posts._id': req.params.postId}).then(function(user) {
@@ -25,9 +29,10 @@ function show(req, res){
 }
 
 function addPost(req, res){
+    req.body.userId = req.user._id.toString()
     req.user.posts.push(req.body);
     req.user.save(function(err){
-        res.redirect('/home', );
+        res.redirect('/home');
     });
 }
 

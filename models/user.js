@@ -13,6 +13,7 @@ let postSchema = new Schema ({
     title: String,
     body: String,
     likes: Number,
+    userId: String,
     comments: [commentSchema]
 }, {
     timestamps: true

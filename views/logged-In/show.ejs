@@ -6,11 +6,16 @@
     <p><%= post.title %></p>
 <label>Post:</label>
     <p><%= post.body %></p>
+    <% if(user._id.toString() === post.userId){ %>
+        <form action="">
+            <button>Edit Post</button>
+        </form>
+    <% } %>
 
 <label>Replies: </label>
      <% post.comments.forEach(function(c){ %>
         <ul>
-            <% if(user._id == c.userId){ %>
+            <% if(user._id.toString() === c.userId){ %>
                 <form action="/post/<%= post._id %>/comments/<%= c._id %>?_method=DELETE" method="POST">
                     <li><%= c.body %></li> <button>Delete Comment</button>
                 </form>
