@@ -2,11 +2,16 @@ const User = require('../models/user');
 
 
 module.exports = {
-homePage,
-newPost,
-addPost,
-show,
-update
+    homePage,
+    newPost,
+    addPost,
+    show,
+    update,
+    delete: deletePost
+}
+
+function deletePost(req, res){
+    console.log('DELETE FUNCTION RAN')
 }
 
 function update(req, res){
