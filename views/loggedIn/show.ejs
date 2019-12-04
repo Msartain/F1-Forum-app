@@ -10,7 +10,7 @@
     </div>
     <form id="form" class="hide" action="/home/posts/<%= post._id %>?_method=PUT" method="POST">
         <label >Title:</label>
-        <textarea rows="1" cols="30" name="body"><%= post.title %></textarea>
+        <textarea rows="1" cols="30" name="title"><%= post.title %></textarea>
         <label>Post:</label>
         <textarea rows="15" cols="50" name="body"><%= post.body %></textarea>
         <button id="save">Save Post</button>

@@ -14,9 +14,21 @@ function deletePost(req, res){
     console.log('DELETE FUNCTION RAN')
 }
 
-function update(req, res){
-    console.log('UPDATE FUNCTION RAN')
-    
+function update(req, res, next){
+    User.findById(req.session.passport.user).then(function(user) {
+        console.log(user)
+        user.posts.forEach(function(p){
+             if(p._id == req.params.id){
+                p.title = req.body.title;
+                p.body = req.body.body;
+            }
+        })
+        user.save(function(err){
+            if(err)return next(err);
+            // let post = user.posts.id(req.params.id);
+            res.redirect(`/home/${user._id}/${req.params.id}`)
+        })
+    })
 }
 
 function show(req, res){
