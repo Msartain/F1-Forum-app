@@ -2,19 +2,16 @@
 
 <h1>show page</h1>
 
-<label>Title:</label>
+<label >Title:
     <p><%= post.title %></p>
-<label>Post:</label>
+</label>
+<label>Post:
     <p><%= post.body %></p>
+</label>
     <% if(user._id.toString() === post.userId){ %>
-            <div class="post">
-                    <a href="#" onclick="toggleButtons('edit', 'text1', this);">Edit Post</a>
-                    <span id="edit" style="display: none;">
-                    <textarea rows="1" cols="50"><%= post.title %></textarea>
-                    <br>
-                    <textarea rows="8" cols="90"><%= post.body %></textarea>
-                    </span>
-            </div>
+        <!-- button - edit -->
+        <!-- form  class toggle -->
+        <!--  -->
         <form action="/post/<%= post._id %>?_method=Delete" method="POST">
             <button type="submit">Delete Post</button>
         </form>
@@ -41,13 +38,7 @@
 </form>
 
 <script>
-    function toggleButtons(id, text, btn){
-        document.getElementById(id).style.display = 'block';
-    // hide the lorem ipsum text
-        document.getElementById(text).style.display = 'none';
-    // hide the link
-        btn.style.display = 'none';
-    }
+   
     
 </script>
 
