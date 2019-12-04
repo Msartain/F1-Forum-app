@@ -16,6 +16,7 @@ function deletePost(req, res){
 
 function update(req, res){
     console.log('UPDATE FUNCTION RAN')
+    
 }
 
 function show(req, res){

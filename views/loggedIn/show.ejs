@@ -1,21 +1,31 @@
 <%- include('../partials/header') %>
 
 <h1>show page</h1>
+<% if(user._id.toString() === post.userId){ %>
+   <div id="show">
+        <label >Title:</label>
+        <p id="show"><%= post.title %></p>
+        <label>Post:</label>
+        <p id="show"><%= post.body %></p>
+    </div>
+    <form id="form" class="hide" action="/home/posts/<%= post._id %>?_method=PUT" method="POST">
+        <label >Title:</label>
+        <textarea rows="1" cols="30" name="body"><%= post.title %></textarea>
+        <label>Post:</label>
+        <textarea rows="15" cols="50" name="body"><%= post.body %></textarea>
+        <button id="save">Save Post</button>
+    </form>
+    <button id="edit">Edit Post</button>
+    <form action="/home/posts/<%= post._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Post</button>
+    </form>
+    <% } else { %>
+        <label >Title:</label>
+            <p><%= post.title %></p>
+        <label>Post:</label>
+            <p><%= post.body %></p>
+<% } %>
 
-<label >Title:
-    <p><%= post.title %></p>
-</label>
-<label>Post:
-    <p><%= post.body %></p>
-</label>
-    <% if(user._id.toString() === post.userId){ %>
-        <!-- button - edit -->
-        <!-- form  class toggle -->
-        <!--  -->
-        <form action="/post/<%= post._id %>?_method=Delete" method="POST">
-            <button type="submit">Delete Post</button>
-        </form>
-    <% } %>
 <br>
 <label>Replies: </label>
      <% post.comments.forEach(function(c){ %>
@@ -36,12 +46,6 @@
         <textarea rows="15" cols="50" name="body"></textarea>
     <button type="submit" class="btn btn-outline-primary">Submit reply</button>
 </form>
-
-<script>
-   
-    
-</script>
-
 
 
 <%- include('../partials/footer') %>

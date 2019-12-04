@@ -7,7 +7,8 @@ router.get('/', isLoggedIn, homeCtrl.homePage);
 router.get('/new', isLoggedIn, homeCtrl.newPost);
 router.get('/:userId/:postId', isLoggedIn, homeCtrl.show);
 router.post('/:id', isLoggedIn, homeCtrl.addPost);
-router.delete('/:id', isLoggedIn, homeCtrl.delete);
+router.delete('/posts/:id', isLoggedIn, homeCtrl.delete);
+router.put('/posts/:id', isLoggedIn, homeCtrl.update)
 
 
 
