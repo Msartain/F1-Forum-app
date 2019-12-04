@@ -22,7 +22,7 @@ function show(req, res){
     User.findOne({'posts._id': req.params.postId}).then(function(user) {
         // console.log('POST: ' + user.posts.id(req.params.postId))
         let post = user.posts.id(req.params.postId);
-        res.render('logged-in/show', {post: post, user: req.user})
+        res.render('loggedIn/show', {post: post, user: req.user})
     })
     // User.findById(req.params.userId, function(err, user){
     //     user.posts.forEach(function(post){
@@ -44,7 +44,7 @@ function addPost(req, res){
 function homePage(req, res){
     User.find({}, function(err, users){
         if (err) return;
-        res.render('logged-in/home',{
+        res.render('loggedIn/home',{
             users,
             user: req.user,
         })
@@ -53,5 +53,5 @@ function homePage(req, res){
 }
 
 function newPost(req, res){
-    res.render('logged-in/new', {user: req.user})
+    res.render('loggedIn/new', {user: req.user})
 }
