@@ -19,7 +19,9 @@ function deleteComment(req, res){
 
 function create(req, res){
     //adding the current loggen in user id to the userId property of req.body
+    req.body.avatar = req.user.avatar
     req.body.userId = req.user._id
+    req.body.name = req.user.name
     // finding the user who owns the post with the posts' id
     User.findOne({'posts._id': req.params.id}).then(function(user) {
         // setting post as the current post being viewed

@@ -47,7 +47,9 @@ function show(req, res){
 }
 
 function addPost(req, res){
+    req.body.avatar = req.user.avatar
     req.body.userId = req.user._id.toString()
+    req.body.name = req.user.name
     req.user.posts.push(req.body);
     req.user.save(function(err){
         res.redirect('/home');

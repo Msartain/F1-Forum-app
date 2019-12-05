@@ -8,6 +8,8 @@ let commentSchema = new Schema ({
     },    
     likes: Number,
     userId: String,
+    name: String,
+    avatar: String
 }, {
     timestamps: true
 })
@@ -23,6 +25,8 @@ let postSchema = new Schema ({
     },    
     likes: Number,
     userId: String,
+    name: String,
+    avatar: String,
     comments: [commentSchema]
 }, {
     timestamps: true

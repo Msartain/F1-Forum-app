@@ -2,7 +2,7 @@
 
 <h1>Driver Standings</h1>
 
-<table class="table table-striped text-center"> 
+<table class="table table-striped text-center container"> 
     <th>Pos </th>
     <th>Driver</th>
     <th>Constructor</th>
@@ -14,7 +14,6 @@
         <% test.DriverStandings.forEach(function(standing){ %>
             <% let driver = standing.Driver; %>
             <% let constructor = standing.Constructors; %>
-
             <tr>
                     <td> <%= standing.position %> </td>
                     <td> <%= driver.givenName %> <%= driver.familyName %></td>
@@ -26,7 +25,6 @@
                     <td> <%= standing.points %> </td>
                     <td> <%= standing.wins %> </td>
             </tr>
-
            <% }); %>
         <% }); %>
    
