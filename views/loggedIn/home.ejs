@@ -1,27 +1,23 @@
 <%- include('../partials/header') %>
-
-
-<div class="container">
-  <div class="welcome">
-    <h1>You are logged in.</h1>
-  </div>
+<div id="table">
+  <table class="table table-striped text-center container mt-4"> 
+    <thead>
+          <th>Title </th>
+          <th>Created</th>
+    </thead>
+    <tbody>
+        <% users.forEach(function(post) { %>
+          <% post.posts.forEach(function(p) { %>
+            <tr>
+                <td><a href="/home/<%= user._id %>/<%= p._id %>"><%= p.title %></a></td>
+                <td><%= p.createdAt.toLocaleString() %></td>
+            </tr>
+          <% }) %>
+        <% }) %> 
+    </tbody>
+  </table>   
 </div>
-
-
-<table class="table table-striped text-center"> 
-        <th>Title </th>
-        <th>Created</th>
-        <th>Likes</th>
-</thead>
-<tbody>
-    <% users.forEach(function(post) { %>
-      <% post.posts.forEach(function(p) { %>
-        <tr>
-            <td><a href="/home/<%= user._id %>/<%= p._id %>"><%= p.title %></a></td>
-            <td><%= p.createdAt.toLocaleString() %></td>
-        </tr>
-      <% }) %>
-    <% }) %>    
+      
     
 
 <%- include('../partials/footer') %>

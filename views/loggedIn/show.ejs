@@ -1,50 +1,70 @@
 <%- include('../partials/header') %>
 
-<h1>show page</h1>
+
+
+          <!-- <h5 class="card-title">Special title treatment</h5> -->
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+       
+      
+
+
+
+
 <% if(user._id.toString() === post.userId){ %>
-   <div id="show">
-        <label >Title:</label>
-        <p id="show"><%= post.title %></p>
-        <label>Post:</label>
-        <p id="show"><%= post.body %></p>
+<div class="card container px-0 mt-4">
+    <div id="show">
+        <h5 class="card-header"><%= post.title %></h5>
+        <div class="card-body">
+        <p class="card-text"><%= post.body %></p>
     </div>
-    <form id="form" class="hide" action="/home/posts/<%= post._id %>?_method=PUT" method="POST">
-        <label >Title:</label>
-        <textarea rows="1" cols="30" name="title"><%= post.title %></textarea>
-        <label>Post:</label>
-        <textarea rows="15" cols="50" name="body"><%= post.body %></textarea>
-        <button id="save">Save Post</button>
-    </form>
-    <button id="edit">Edit Post</button>
+ 
+    <a id="edit" class="btn btn-primary float-right mr-1 mb-1 ">Edit Post</a>
     <form action="/home/posts/<%= post._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Post</button>
+        <a class="btn btn-primary float-right mr-1 mb-1">Delete Post</a>
     </form>
     <% } else { %>
-        <label >Title:</label>
-            <p><%= post.title %></p>
-        <label>Post:</label>
-            <p><%= post.body %></p>
+        <div id="show">
+            <h5 class="card-header"><%= post.title %></h5>
+            <p class="card-text"><%= post.body %></p>
+        </div>
 <% } %>
+    </div>
+</div>
+<form id="form" class="hide" action="/home/posts/<%= post._id %>?_method=PUT" method="POST">
+    <label >Title:</label>
+    <textarea rows="1" cols="30" name="title"><%= post.title %></textarea>
+    <label>Post:</label>
+    <textarea rows="15" cols="50" name="body"><%= post.body %></textarea>
+    <button id="save">Save Post</button>
+</form>
 
-<br>
-<label>Replies: </label>
      <% post.comments.forEach(function(c){ %>
-        <ul>
             <% if(user._id.toString() === c.userId){ %>
+                <div class="card container card-container px-0 mt-4">
+                        <h5 class="card-header">Commenter name</h5>
+                        <div class="card-body">
                 <form action="/post/<%= post._id %>/comments/<%= c._id %>?_method=DELETE" method="POST">
-                    <li><%= c.body %></li> <button>Delete Comment</button>
+                    <p class="card-text"><%= c.body %></p>
+                    <a class="btn btn-primary float-right mr-1 mb-1">Delete Comment</a>
                 </form>
+            </div>
+        </div>
             <% } else { %>
-                <li><%= c.body %></li> 
-            <% } %>
-        </ul>
-<% }) %>
-
+                <div class="card container card-container px-0 mt-4">
+                        <h5 class="card-header">Commenter name</h5>
+                        <div class="card-body">
+                        <p class="card-text"><%= c.body %></p>
+                    </div>
+                </div>
+                <% } %>
+        <% }) %>
 
 <form action="/home/<%= post._id %>/comments" method="POST">
-<label>Reply:</label>
-        <textarea rows="15" cols="50" name="body"></textarea>
-    <button type="submit" class="btn btn-outline-primary">Submit reply</button>
+    <div class="form-group container">
+            <label for="exampleFormControlTextarea1">Comment:</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="body"></textarea>
+          </div>
+    <button type="submit" class="btn btn-outline-primary float-right mr-5 mb-5">Submit reply</button>
 </form>
 
 
