@@ -1,4 +1,3 @@
-// let save = document.getElementById('save')
 let edit = document.getElementById('edit')
 let show = document.getElementById('show')
 let textArea = document.getElementById('input')

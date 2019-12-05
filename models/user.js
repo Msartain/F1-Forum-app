@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let commentSchema = new Schema ({
-    body: String,
+    body: {
+        type: String,
+        require: true
+    },    
     likes: Number,
     userId: String,
 }, {
@@ -10,8 +13,14 @@ let commentSchema = new Schema ({
 })
 
 let postSchema = new Schema ({
-    title: String,
-    body: String,
+    title: {
+        type: String,
+        required: true
+    },    
+    body: {
+        type: String,
+        required: true
+    },    
     likes: Number,
     userId: String,
     comments: [commentSchema]

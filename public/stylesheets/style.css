@@ -34,13 +34,11 @@ main {
 
 
 .table {
-  border: solid 3px black;
-  font-size: 12px;
+  border: solid 2px black;
+  font-size: 14px;
 } 
 
 .card {
-  display:flex;
-  justify-content: center;
   width: 80%;
 }
 
