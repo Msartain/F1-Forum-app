@@ -55,3 +55,8 @@ main {
   background: url("../images/merc-bg.jpg");
   background-size: cover;
 }
+
+#avatar {
+  width: 30px;
+  height: 30px;
+}

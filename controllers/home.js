@@ -12,6 +12,14 @@ module.exports = {
 
 function deletePost(req, res){
     console.log('DELETE FUNCTION RAN')
+    User.findOne({'posts._id': req.params.id}).then(function(user){
+        let post = user.posts.id(req.params.id);
+        post.remove(req.params.id)
+        user.save(function(err){
+            if(err)return err
+            res.redirect('/home')
+        })
+    })
 }
 
 function update(req, res, next){

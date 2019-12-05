@@ -11,7 +11,7 @@
       <% post.posts.forEach(function(p) { %>
       <tr>
         <td><a href="/home/<%= user._id %>/<%= p._id %>"><%= p.title %></a></td>
-        <td><%= p.name %></td>
+        <td><img id="avatar" src="<%= p.avatar %>" class="img-fluid rounded-circle" alt="Responsive image">    <%= p.name %></td>
         <td><%= p.createdAt.toLocaleString() %></td>
       </tr>
       <% }) %>
@@ -20,3 +20,4 @@
   </table>
 </div>
 <%- include('../partials/footer') %>
+
