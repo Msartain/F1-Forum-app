@@ -11,7 +11,6 @@ module.exports = {
 }
 
 function deletePost(req, res){
-    console.log('DELETE FUNCTION RAN')
     User.findOne({'posts._id': req.params.id}).then(function(user){
         let post = user.posts.id(req.params.id);
         post.remove(req.params.id)
@@ -24,7 +23,6 @@ function deletePost(req, res){
 
 function update(req, res, next){
     User.findById(req.session.passport.user).then(function(user) {
-        console.log(user)
         user.posts.forEach(function(p){
              if(p._id == req.params.id){
                 p.title = req.body.title;
@@ -33,7 +31,6 @@ function update(req, res, next){
         })
         user.save(function(err){
             if(err)return next(err);
-            // let post = user.posts.id(req.params.id);
             res.redirect(`/home/${user._id}/${req.params.id}`)
         })
     })
@@ -41,7 +38,6 @@ function update(req, res, next){
 
 function show(req, res){
     User.findOne({'posts._id': req.params.postId}).then(function(user) {
-        // console.log('POST: ' + user.posts.id(req.params.postId))
         let post = user.posts.id(req.params.postId);
         res.render('loggedIn/show', {post: post, user: req.user})
     })

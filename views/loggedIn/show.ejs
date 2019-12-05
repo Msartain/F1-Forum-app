@@ -17,8 +17,9 @@
 <% if(user._id.toString() === post.userId){ %>
 <div id="show" class="card container px-0 mt-4">
     <div>
-        <h5 class="card-header">'<%= post.title %>' by <%= post.name %></h5>
+        <h5 class="card-header"><%= post.title %></h5>
         <div class="card-body">
+            <p><img id="avatar" src="<%= post.avatar %>" class="img-fluid rounded-circle" alt="Responsive image"> <%= post.name %> <%= post.createdAt.toLocaleString() %></p>
             <p class="card-text"><%= post.body %></p>
         </div>
         <button id="edit" class="btn btn-primary float-right mr-1 mb-1 ">Edit Post</button>
@@ -31,8 +32,9 @@
 <% } else { %>
 <div id="show" class="card container px-0 mt-4">
     <div>
-        <h5 class="card-header">'<%= post.title %>' by <%= post.name %></h5>
+        <h5 class="card-header"><%= post.title %></h5> 
         <div class="card-body">
+            <p><img id="avatar" src="<%= post.avatar %>" class="img-fluid rounded-circle" alt="Responsive image"> <%= post.name %> <%= post.createdAt.toLocaleString() %></p>
             <p class="card-text"><%= post.body %></p>
         </div>
 
@@ -43,9 +45,10 @@
 <% post.comments.forEach(function(c){ %>
 <% if(user._id.toString() === c.userId){ %>
 <div class="card container card-container px-0 mt-5">
-    <h5 class="card-header"><%= c.name%></h5>
-    <h7 class="card-body float-right"><%= c.createdAt.toLocaleString() %></h7>
+    <!-- <h5 class="card-header"><%= c.name%></h5>
+    <h7 class="card-body float-right"><%= c.createdAt.toLocaleString() %></h7> -->
     <div class="card-body">
+        <p><img id="avatar" src="<%= c.avatar %>" class="img-fluid rounded-circle" alt="Responsive image"> <%= c.name %> <%= c.createdAt.toLocaleString() %></p>
         <form action="/post/<%= post._id %>/comments/<%= c._id %>?_method=DELETE" method="POST">
             <p class="card-text"><%= c.body %></p>
             <button class="btn btn-primary float-right mr-1 mb-1">Delete Comment</button>
@@ -55,8 +58,8 @@
 <!-- comment display for comments not owned by current user -->
 <% } else { %>
 <div class="card container card-container px-0 mt-5">
-    <h5 class="card-header"><%= c.name %></h5>
     <div class="card-body">
+        <p><img id="avatar" src="<%= c.avatar %>" class="img-fluid rounded-circle" alt="Responsive image"> <%= c.name %> <%= c.createdAt.toLocaleString() %></p>
         <p class="card-text"><%= c.body %></p>
     </div>
 </div>
