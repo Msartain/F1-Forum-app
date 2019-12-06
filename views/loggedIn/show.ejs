@@ -45,8 +45,6 @@
 <% post.comments.forEach(function(c){ %>
 <% if(user._id.toString() === c.userId){ %>
 <div class="card container card-container px-0 mt-5">
-    <!-- <h5 class="card-header"><%= c.name%></h5>
-    <h7 class="card-body float-right"><%= c.createdAt.toLocaleString() %></h7> -->
     <div class="card-body">
         <p><img id="avatar" src="<%= c.avatar %>" class="img-fluid rounded-circle" alt="Responsive image"> <%= c.name %> <%= c.createdAt.toLocaleString() %></p>
         <form action="/post/<%= post._id %>/comments/<%= c._id %>?_method=DELETE" method="POST">
