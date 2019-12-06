@@ -64,6 +64,6 @@ Api View:
 
 ### Website Link:
 
-![Forum-ula 1 app webiste url]('https://forumula-1.herokuapp.com/')
+'https://forumula-1.herokuapp.com/'
 
 ## Future enhancements
