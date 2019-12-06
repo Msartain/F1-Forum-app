@@ -24,7 +24,7 @@ Edit view:
 
 ## ERD:
 
-![Entity Relationship Diagram]('public/images/ERD-F1-Forum.png')
+![Entity Relationship Diagram](public/images/ERD-F1-Forum.png)
 
 
 ## Technologies Used:
@@ -44,20 +44,23 @@ Google OAuth
 
 Landing view: 
 
-![Landing page]()
+![Landing page](public/images/Landing-view.png)
 
 Create post view:
 
-![Create Post page]()
+![Create Post page](public/images/Create-view.png)
 
 Show view:
 
-![Show post page]()
+![Show post page](public/images/Show-view.png)
 
 Edit view:
 
-![Edit post page]()
+![Edit post page](public/images/Edit-view.png)
 
+Api View:
+
+![Edit post page](public/images/Api-view.png)
 
 ### Website Link:
 
