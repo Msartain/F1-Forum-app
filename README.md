@@ -1,8 +1,8 @@
-# F1 Forum
+# Forum-ula 1
 
-why am I making this app
+Welcome to Forum-ula 1, a racing based forum with live leader boards for drivers and constructors.
 
-
+Simply log on with a Google email and post and comment on any racing subject.
 
 ## Wireframes
 
@@ -29,16 +29,16 @@ Edit view:
 
 ## Technologies Used:
 
-JavaScript
-Html
-CSS
-VS Code
-Mongoose
-Mongo DB
-Node.js
-Express
-Atlas
-Google OAuth
+JavaScript, 
+Html, 
+CSS, 
+VS Code, 
+Mongoose, 
+Mongo DB, 
+Node.js, 
+Express, 
+Atlas, 
+Google OAuth.
 
 ### App screenshots
 
@@ -64,6 +64,11 @@ Api View:
 
 ### Website Link:
 
-'https://forumula-1.herokuapp.com/'
+https://forumula-1.herokuapp.com/
 
 ## Future enhancements
+
+- Futher functionality for searching driver stats and results.
+- A user can save favorite drivers and teams.
+- Like posts and comments.
+- Profile information in nav bar for logged in user (avatar and Name).
