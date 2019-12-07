@@ -10,7 +10,8 @@
         <label for="exampleFormControlTextarea1">Post:</label>
         <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3"
             required="true"><%= post.body %></textarea>
-        <button type="submit" class="btn btn-outline-primary float-right mt-2">Update Post</button>
+        <button id="back" type="submit" class="btn btn-primary float-right ml-1 mt-2">Go back</button>
+        <button type="submit" class="btn btn-primary float-right mt-2">Update Post</button>
     </div>
 </form>
 <!-- post display for posts owned by current user -->
@@ -24,20 +25,19 @@
         </div>
         <button id="edit" class="btn btn-primary float-right mr-1 mb-1 ">Edit Post</button>
         <form action="/home/posts/<%= post._id %>?_method=DELETE" method="POST">
-            <button class="btn btn-primary float-right mr-1 mb-1">Delete Post</button>
+            <button id="del" class="btn btn-primary float-right mr-1 mb-1">Delete Post</button>
+        </form>
         </div>
     </div>
-</form>
 <!-- post display for posts not owned by current user -->
 <% } else { %>
-<div id="show" class="card container px-0 mt-4">
+<div class="card container px-0 mt-4">
     <div>
         <h5 class="card-header"><%= post.title %></h5> 
         <div class="card-body">
             <p><img id="avatar" src="<%= post.avatar %>" class="img-fluid rounded-circle" alt="Responsive image"> <%= post.name %> <%= post.createdAt.toLocaleString() %></p>
             <p class="card-text"><%= post.body %></p>
         </div>
-
         <% } %>
     </div>
 </div>
@@ -47,9 +47,9 @@
 <div class="card container card-container px-0 mt-5">
     <div class="card-body">
         <p><img id="avatar" src="<%= c.avatar %>" class="img-fluid rounded-circle" alt="Responsive image"> <%= c.name %> <%= c.createdAt.toLocaleString() %></p>
+        <p class="card-text"><%= c.body %></p>
         <form action="/post/<%= post._id %>/comments/<%= c._id %>?_method=DELETE" method="POST">
-            <p class="card-text"><%= c.body %></p>
-            <button class="btn btn-primary float-right mr-1 mb-1">Delete Comment</button>
+            <button id="del" class="btn btn-primary float-right ">Delete Comment</button>
         </form>
     </div>
 </div>
@@ -68,10 +68,8 @@
     <div class="form-group container mt-3">
         <label for="exampleFormControlTextarea1">Comment:</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="body" required="true"></textarea>
-        <button type="submit" class="btn btn-outline-primary float-right my-3">Submit reply</button>
+        <button type="submit" class="btn btn-primary float-right my-3">Submit reply</button>
     </div>
 </form>
-
-
 
 <%- include('../partials/footer') %>
